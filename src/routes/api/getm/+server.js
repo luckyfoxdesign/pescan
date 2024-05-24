@@ -16,7 +16,7 @@ const connection = await mysql.createConnection({
 async function getPostFromDatabase() {
     try {
         const [results, fields] = await connection.query(
-            'SELECT * FROM `table` WHERE `name` = "Page" AND `age` > 45'
+            'SELECT * FROM `billing_info`
         );
 
         console.log(results); // results contains rows returned by server
