@@ -1,8 +1,8 @@
 .DS_Store
 node_modules
-/build
-/.svelte-kit
-/package
+build
+.svelte-kit
+package
 .env
 .env.*
 !.env.example
@@ -10,3 +10,11 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 db
 config
+old_code
+__pycache__
+*.sql
+transaction.py
+back/docs/
+back/reference_information.py
+back/recalculations.py
+back/meter_readings.py

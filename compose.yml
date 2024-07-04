@@ -1,9 +1,47 @@
 services:
-  app:
+  skit:
     image: node:22.0.0-alpine3.19
     working_dir: /app
+    container_name: skit
     ports:
       - 3000:3000
     volumes:
-      - .:/app
+      - ./skit/:/app
     command: sh -c "npm i && npm run dev"
+    env_file:
+      - ./config/.env
+  pyback:
+    build: ./back
+    volumes:
+      - ./back:/app
+    working_dir: /app
+    container_name: pyback
+    # stdin_open: true
+    # tty: true
+    # command: tail -f /dev/null
+    ports:
+      - "5001:5000"
+    environment:
+      - FLASK_ENV=development
+    # env_file:
+    #   - ./config/.env
+  # mdb:
+  #   image: mariadb:11.4.2
+  #   container_name: mdb_c
+  #   restart: always
+  #   ports:
+  #     - 3306:3306
+  #   volumes:
+  #     - ./db/init/:/docker-entrypoint-initdb.d/
+  #     - ./db/maria/:/var/lib/mysql
+  #   environment:
+  #     MARIADB_ROOT_PASSWORD: 1
+  #   env_file:
+  #     - ./config/.env
+  # adminer:
+  #   image: adminer
+  #   restart: always
+  #   ports:
+  #     - 8080:8080
+  #   depends_on:
+  #     - mdb
