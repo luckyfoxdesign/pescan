@@ -1,6 +1,16 @@
 // src/routes/api/upload.js
 import { json } from '@sveltejs/kit';
 
+export async function OPTIONS() {
+    return new Response(null, {
+        headers: {
+            'Access-Control-Allow-Origin': 'https://pesbit.ru',
+            'Access-Control-Allow-Methods': 'POST, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type'
+        }
+    });
+}
+
 export async function POST({ request }) {
     const data = await request.formData();
     const file = data.get('file');
@@ -13,9 +23,9 @@ export async function POST({ request }) {
         method: 'POST',
         body: data,
         headers: {
-            'Access-Control-Allow-Origin': 'https://pesbit.ru/',
-            'Access-Control-Allow-Methods': 'POST',
-            'Access-Control-Allow-Headers': 'Content-Type',
+            'Access-Control-Allow-Origin': 'https://pesbit.ru',
+            'Access-Control-Allow-Methods': 'POST, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type'
         }
     });
 
