@@ -14,6 +14,8 @@ export async function POST({ request }) {
         body: data,
         headers: {
             'Access-Control-Allow-Origin': 'https://pesbit.ru/',
+            'Access-Control-Allow-Methods': 'POST',
+            'Access-Control-Allow-Headers': 'Content-Type',
         }
     });
 
