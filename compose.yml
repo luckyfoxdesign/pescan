@@ -8,8 +8,9 @@ services:
     volumes:
       - ./skit/:/app
     command: sh -c "npm i && npm run dev"
-    env_file:
-      - ./config/.env
+    restart: always
+    # env_file:
+    #   - ./config/.env
   pyback:
     build: ./back
     volumes:
