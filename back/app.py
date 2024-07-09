@@ -14,8 +14,11 @@ import service_charges
 import interactions_with_organizations
 # import transaction
 import json
+from flask_cors import CORS
 
 app = Flask(__name__)
+
+CORS(app, resources={r"/upload": {"origins": "https://pesbit.ru"}})
 
 ALLOWED_EXTENSIONS = {'pdf'}
 
@@ -60,7 +63,8 @@ def upload_file():
                     }), 200
                 else:
                     return jsonify({"error": "Not a bill"}), 400
-        except:
+        except Exception as e:
+            print(f"EXCEPTION: {e}")
             return jsonify({"error": "Not pdf document"}), 400
     else:
         return jsonify({"error": "File not allowed"}), 400

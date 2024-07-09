@@ -12,6 +12,9 @@ export async function POST({ request }) {
     const response = await fetch('http://pyback:5000/upload', {
         method: 'POST',
         body: data,
+        headers: {
+            'Access-Control-Allow-Origin': 'https://pesbit.ru/',
+        }
     });
 
     const result = await response.json();
@@ -20,5 +23,9 @@ export async function POST({ request }) {
         return json(result, { status: response.status });
     }
 
-    return json(result);
+    return json(result, {
+        headers: {
+            'Access-Control-Allow-Origin': 'https://pesbit.ru/',
+        }
+    });
 }
