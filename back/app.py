@@ -18,7 +18,7 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 
-CORS(app, resources={r"/upload": {"origins": "https://pesbit.ru"}})
+CORS(app, resources={r"/upload": {"origins": "https://pesbit.ru"}}, supports_credentials=True)
 
 ALLOWED_EXTENSIONS = {'pdf'}
 
