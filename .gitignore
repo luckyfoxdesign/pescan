@@ -18,3 +18,4 @@ back/docs/
 back/reference_information.py
 back/recalculations.py
 back/meter_readings.py
+py/*.csv

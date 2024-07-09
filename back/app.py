@@ -7,9 +7,9 @@ import re
 import utils
 import pdfplumber
 import pandas as pd
-import meter_readings
-import reference_information
-import recalculations
+# import meter_readings
+# import reference_information
+# import recalculations
 import service_charges
 import interactions_with_organizations
 # import transaction
